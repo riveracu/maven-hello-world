@@ -2,7 +2,7 @@ pipeline {
 agent any
 tools {
 // Install the Maven version configured as "Maven 3.6.3" and add it to the path.
-maven "Maven"
+maven "Maven 3.8.1"
 }
 stages {
 stage('Build') {
@@ -23,7 +23,7 @@ archiveArtifacts 'target/*.jar'
 }
 stage('Code Analysis') {
 steps {
-withSonarQubeEnv('SONAR_Q') {
+withSonarQubeEnv('Sonarqube 8.5 Local') {
 bat 'mvn clean package sonar:sonar'
 }
 }
